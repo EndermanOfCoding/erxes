@@ -492,16 +492,3 @@ setsebool -P httpd_can_network_connect on
 # reload nginx service
 systemctl reload nginx
 
-## setting up firewalld
-yum install firewalld -y
-systemctl enable firewalld
-systemctl start firewalld
-firewall-cmd --zone=public --add-service=ssh
-firewall-cmd --zone=public --add-service=https
-firewall-cmd --zone=public --add-service=http
-firewall-cmd --zone=public --permanent --add-service=ssh
-firewall-cmd --zone=public --permanent --add-service=https
-firewall-cmd --zone=public --permanent --add-service=http
-
-echo
-echo -e "\e[32mInstallation complete\e[0m"
